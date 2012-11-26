@@ -6,12 +6,14 @@
 
 MR2TRACE_HOME="$HOME/nfs/mr2trace"
 VERSION="hadoop-2.0.2-alpha"
-HADOOP_COMMON="brownsys-hadoop"
+HADOOP_GIT_NAME="brownsys-hadoop"
+
+# Path to pre-built version of hadoop binaries
+MR2_SOURCE="$MR2TRACE_HOME/$VERSION/$HADOOP_GIT_NAME/hadoop-dist/target/$VERSION"
 
 MR2_CONFIG_SOURCE="$MR2TRACE_HOME/conf-deploy"
 MR2_CONFIG_BASE="$MR2TRACE_HOME/conf-base"
 
-MR2_SOURCE="$MR2TRACE_HOME/$VERSION/$HADOOP_COMMON/hadoop-dist/target/$VERSION"
 CLUSTER_FILE="$MR2TRACE_HOME/cluster-nodes.txt"
 SLAVES_FILE="$MR2TRACE_HOME/slaves"
 

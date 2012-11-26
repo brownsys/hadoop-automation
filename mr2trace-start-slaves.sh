@@ -6,5 +6,6 @@
 source mr2trace-config.sh
 
 echo "Starting slaves"
-pusher $PUSHER_BASE_ARGS --hosts=$SLAVES_FILE "mr2-srv start nodemanager; mr2-srv start datanode" > /dev/null
+pusher $PUSHER_SLAVES "mr2-srv start nodemanager; mr2-srv start datanode" > /dev/null
+
 
