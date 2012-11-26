@@ -1,3 +1,5 @@
+eucboss
+euc-nat
 euc01
 euc02
 euc03
