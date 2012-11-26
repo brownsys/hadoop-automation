@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="configuration.xsl"?>
+<configuration>
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+	</property>
+
+	<property>
+		<name>mapreduce.map.memory.mb</name>
+		<value>1024</value>
+	</property>
+	<property>
+		<name>mapreduce.map.java.opts</name>
+		<value>-Xmx768M</value>
+	</property>
+	<property>
+		<name>mapreduce.reduce.memory.mb</name>
+		<value>1024</value>
+	</property>
+	<property>
+		<name>mapreduce.reduce.java.opts</name>
+		<value>-Xmx768M</value>
+	</property>
+
+	<property>
+		<name>mapreduce.jobhistory.address</name>
+		<value>EUC_JOBHISTORY:10020</value>
+	</property>
+
+	<property>
+		<name>mapreduce.jobhistory.webapp.address</name>
+		<!--		<value>cslab1a:19888</value> -->
+		<value>EUC_JOBHISTORY:19888</value>
+	</property>
+</configuration>

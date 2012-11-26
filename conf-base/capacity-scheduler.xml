@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>yarn.scheduler.capacity.root.queues</name>
+    <value>a,b</value>
+    <description>The queues at the this level (root is the root queue).
+    </description>
+  </property>
+
+<property>
+  <name>yarn.scheduler.capacity.root.capacity</name>
+  <value>100.0</value>
+</property>
+
+<property>
+  <name>yarn.scheduler.capacity.root.a.capacity</name>
+  <value>50.0</value>
+</property>
+
+<property>
+  <name>yarn.scheduler.capacity.root.b.capacity</name>
+  <value>50.0</value>
+</property>
+
+<property>
+  <name>yarn.scheduler.capacity.root.a.maximum-capacity</name>
+  <value>100.0</value>
+</property>
+
+<property>
+  <name>yarn.scheduler.capacity.root.b.maximum-capacity</name>
+  <value>100.0</value>
+</property>
+
+
+</configuration>

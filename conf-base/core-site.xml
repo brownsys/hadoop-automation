@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.defaultFS</name>
+  <value>hdfs://EUC_NAMENODE:9000/</value>
+  <description>The name of the default file system.  A URI whose
+  scheme and authority determine the FileSystem implementation.  The
+  uri's scheme determines the config property (fs.SCHEME.impl) naming
+  the FileSystem implementation class.  The uri's authority is used to
+  determine the host, port, etc. for a filesystem.</description>
+</property>
+
+<property>
+  <name>hadoop.tmp.dir</name>
+  <value>EUC_HADOOP_TMP_DIR</value>
+  <description>A base for other temporary directories.</description>
+</property>
+
+<property>
+	<name>io.file.buffer.size</name>
+	<value>65536</value>
+</property>
+
+<property>
+	<name>io.sort.factor</name>
+	<value>20</value>
+</property>
+
+</configuration>
