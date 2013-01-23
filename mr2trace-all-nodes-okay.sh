@@ -21,7 +21,7 @@ fi
 
 num=`lynx -dump $MASTER1:50070/dfshealth.jsp | grep "Live Nodes" | awk '{print $4}'`
 if [ "$num" != "$TOTAL_NODES" ]; then
-    echo "Only $num nodes are live, this should be $TOTAL_NODES"
+    echo "Only $num nodes are live, there should be $TOTAL_NODES"
     exit 1
 else
     echo "All slave-nodes are live!"
