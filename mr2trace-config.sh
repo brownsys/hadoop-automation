@@ -4,8 +4,8 @@
 #              for install, execution, tracing, etc.
 #=======================================================================================
 
-MR2TRACE_HOME="$HOME/nfs/mr2trace"
-VERSION="hadoop-2.0.2-alpha"
+MR2TRACE_HOME="$HOME/nfs/hadoop-automation"
+VERSION="hadoop-2.0.3-SNAPSHOT"
 HADOOP_GIT_NAME="brownsys-hadoop"
 
 # Path to pre-built version of hadoop binaries
