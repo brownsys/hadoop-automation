@@ -11,5 +11,4 @@ Files in `bin` must be in the users PATH on all machines.
 
 `mr2trace-config.sh` defines variables used across scripts, make sure that the `$MR2_SOURCE` correctly points to your compiled copy of hadoop
 
-
-
+Lastly, if using with the euc cluster check out this repo to: `$HOME/nfs/`.
