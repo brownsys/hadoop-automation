@@ -14,20 +14,19 @@ fi
 
 # Stopping all services across cluster
 ./mr2trace-stop-all.sh
+if [ $? != 0 ]; then exit 1; fi
 
 # Install a new clean copy of mr2 across all nodes in euc
 ./mr2trace-push-install.sh clean
+if [ $? != 0 ]; then exit 1; fi
 
 # Start up master nodes
 ./mr2trace-start-masters.sh
-if [ $? == 1 ]; then
-    echo "Failed to start masters."
-    exit 1
-fi
+if [ $? != 0 ]; then exit 1; fi
 
 # Start up slave nodes
 ./mr2trace-start-slaves.sh
 
 # Are all nodes accounted for?
-sleep 10
+sleep 15
 ./mr2trace-all-nodes-okay.sh
