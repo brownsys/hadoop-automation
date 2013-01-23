@@ -5,7 +5,7 @@
 #              'clean' this will cause HDFS to be wiped as well.
 #=======================================================================================
 
-source $HOME/nfs/mr2trace/mr2trace-config.sh
+source $HOME/nfs/hadoop-automation/mr2trace-config.sh
 
 if [ -z $HADOOP_CONTAINER_LOGS ] | [ -z $MR2_LOCAL_BASE ] |
     [ -z $HADOOP_HOME ] | [ -z $MR2_SOURCE ] | 

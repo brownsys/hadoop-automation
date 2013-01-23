@@ -4,7 +4,7 @@
 #              actually been shutdown.
 #=======================================================================================
 
-source $HOME/nfs/mr2trace/mr2trace-config.sh
+source $HOME/nfs/hadoop-automation/mr2trace-config.sh
 
 # Stop slave services
 pusher $PUSHER_SLAVES "mr2-srv stop datanode; mr2-srv stop nodemanager" > /dev/null
@@ -19,4 +19,5 @@ if [ $procs == "0" ]; then
 else
     echo "Did not stop all services, $procs still running!"
     pusher $PUSHER_ALL "jps" | grep -v "Jps"
+    exit 1
 fi
