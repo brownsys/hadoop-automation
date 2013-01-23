@@ -16,7 +16,7 @@
 
 <property>
 	<name>yarn.nodemanager.resource.memory-mb</name>
-	<value>2048</value>
+	<value>3072</value>
 </property>
 
 <property>
@@ -51,6 +51,7 @@
 
 <property>
   <name>yarn.resourcemanager.scheduler.class</name>
+  <!--<value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fifo.FifoScheduler</value>-->
   <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
 </property>
 

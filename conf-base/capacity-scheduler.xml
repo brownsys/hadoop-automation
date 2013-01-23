@@ -9,28 +9,27 @@
 
 <property>
   <name>yarn.scheduler.capacity.root.capacity</name>
-  <value>100.0</value>
+  <value>100</value>
 </property>
 
 <property>
   <name>yarn.scheduler.capacity.root.a.capacity</name>
-  <value>50.0</value>
+  <value>50</value>
 </property>
 
 <property>
   <name>yarn.scheduler.capacity.root.b.capacity</name>
-  <value>50.0</value>
+  <value>50</value>
 </property>
 
 <property>
   <name>yarn.scheduler.capacity.root.a.maximum-capacity</name>
-  <value>100.0</value>
+  <value>100</value>
 </property>
 
 <property>
   <name>yarn.scheduler.capacity.root.b.maximum-capacity</name>
-  <value>100.0</value>
+  <value>100</value>
 </property>
-
 
 </configuration>
