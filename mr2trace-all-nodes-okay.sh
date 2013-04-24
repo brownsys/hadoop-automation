@@ -7,11 +7,11 @@ source mr2trace-config.sh
 
 if [ `ssh $MASTER1 "jps" | egrep "NameNode|JobHistoryServer" | wc -l` == 2 ]; then
     if [ `ssh $MASTER2 "jps" | grep "ResourceManager" | wc -l` == 1 ]; then
-	echo "Master-nodes are live!"
+	    echo "Master-nodes are live!"
     else
-	echo "Master startup failed on $MASTER2:"
-	ssh $MASTER2 "jps"
-	exit 1
+	    echo "Master startup failed on $MASTER2:"
+	    ssh $MASTER2 "jps"
+	    exit 1
     fi
 else 
     echo "Master startup failed on $MASTER1:" 

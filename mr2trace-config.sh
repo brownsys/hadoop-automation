@@ -5,7 +5,7 @@
 #=======================================================================================
 
 MR2TRACE_HOME="$HOME/nfs/hadoop-automation"
-VERSION="hadoop-2.0.3-SNAPSHOT"
+VERSION="hadoop-2.0.4-alpha"
 HADOOP_GIT_NAME="brownsys-hadoop"
 
 # Path to pre-built version of hadoop binaries
@@ -21,7 +21,9 @@ PUSHER_BASE_ARGS="--ssh-options=-q"
 PUSHER_ALL="$PUSHER_BASE_ARGS --show-host --hosts=$CLUSTER_FILE"
 PUSHER_SLAVES="$PUSHER_BASE_ARGS --show-host --hosts=$SLAVES_FILE"
 
-MASTER1="euc-nat.euc.smn.cs.brown.edu" #NameNode, JobHistoryServer
-MASTER2="eucboss" #ResourceManager
+#MASTER1="euc-nat.euc.smn.cs.brown.edu" #NameNode, JobHistoryServer
+#MASTER2="eucboss" #ResourceManager
+MASTER1="euc04" #NameNode, JobHistoryServer
+MASTER2="euc05" #ResourceManager
 TOTAL_NODES=`cat $SLAVES_FILE | wc -l`
 

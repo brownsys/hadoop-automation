@@ -20,13 +20,17 @@ if [ $fscontents == 0 ]; then
     fi
     echo "HDFS formatted correctly"
 fi
+sleep 2
 
 ssh $MASTER1 "mr2-srv start namenode; mr2-srv start historyserver" &> /dev/null
 
+sleep 5
+
 # Check to see if hdfs is working okay.
-ssh $MASTER1 "hdfs dfs -ls /" &> /dev/null
+output=`ssh $MASTER1 "hdfs dfs -ls /"`
 if [ $? == 1 ]; then
     echo "HDFS is not responding, exiting!"
+    echo "stdout:" $output
     exit 1
 fi
 
