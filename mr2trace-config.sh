@@ -4,10 +4,7 @@
 #              for install, execution, tracing, etc.
 #=======================================================================================
 
-SHARED_FILES_NODE="euc-nat"
-SHARED_FILES_PATH="shared_files" # Inside user's homedir of the shared_files_node.
-
-MR2TRACE_HOME="$SHARED_FILES_PATH/hadoop-automation"
+MR2TRACE_HOME="$HOME/nfs/hadoop-automation"
 VERSION="hadoop-2.0.4-alpha"
 HADOOP_GIT_NAME="brownsys-hadoop"
 
