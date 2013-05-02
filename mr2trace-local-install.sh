@@ -14,14 +14,11 @@ if [ -z $HADOOP_CONTAINER_LOGS ] | [ -z $MR2_LOCAL_BASE ] |
     exit 1
 fi
 
-if [ "clean" == "$1" ]; then
-    echo "Cleaning hdfs!"
-    rm -rf $MR2_LOCAL_BASE/hadoop-tmp/*
-    mkdir -p $MR2_LOCAL_BASE/hadoop-tmp
-else
-    echo "No cleaning hdfs!"
-fi
+echo -n "Cleaning hdfs..."
+rm -rf $MR2_LOCAL_BASE/hadoop-tmp/*
+mkdir -p $MR2_LOCAL_BASE/hadoop-tmp
 
+echo "installing"
 rm -rf "$HADOOP_CONTAINER_LOGS"
 mkdir -p "$HADOOP_CONTAINER_LOGS"
 mkdir -p "$HADOOP_HOME"

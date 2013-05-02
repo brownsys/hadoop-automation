@@ -31,6 +31,7 @@ echo "[ DONE ]"
 echo "Clear existing, copy fresh, and configure mr2 install"
 if [ -n "$1" ] && [ "clean" == "$1" ]; then
     echo "Cleaning/installing"
+    
     pusher $PUSHER_ALL "bash $MR2TRACE_HOME/mr2trace-local-install.sh clean"
 else
     echo "Installing"

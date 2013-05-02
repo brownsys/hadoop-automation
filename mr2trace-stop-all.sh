@@ -4,12 +4,14 @@
 #              actually been shutdown.
 #=======================================================================================
 
-source $HOME/nfs/hadoop-automation/mr2trace-config.sh
+source mr2trace-config.sh
 
 # Stop slave services
+echo "Stopping slaves"
 pusher $PUSHER_SLAVES "mr2-srv stop datanode; mr2-srv stop nodemanager" > /dev/null
 
 # Stop master services
+echo "Stopping master services"
 ssh $MASTER1 "mr2-srv stop namenode; mr2-srv stop resourcemanager; mr2-srv stop historyserver" > /dev/null
 ssh $MASTER2 "mr2-srv stop namenode; mr2-srv stop resourcemanager; mr2-srv stop historyserver" > /dev/null
 

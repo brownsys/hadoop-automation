@@ -5,7 +5,7 @@
 
 source mr2trace-config.sh
 
-error=`pusher $PUSHER_ALL "command -v mr2-srv >/dev/null 2>&1 || { echo >&2 'I require foo but it is not installed.  Aborting.'; exit 1; }"`
+error=`pusher $PUSHER_ALL "command -v mr2-srv >/dev/null 2>&1 || { echo >&2 'I require mr2-srv but it is not installed.  Aborting.'; exit 1; }"`
 if [ "$error" ]; then 
     echo "One or more machines do not have mr2-srv in their path, exiting:"
     echo $error | sed 's/ing. /ing.\n/g'
