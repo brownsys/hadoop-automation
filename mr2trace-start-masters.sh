@@ -10,10 +10,9 @@ echo "Starting masters on $MASTER1 and $MASTER2"
 ssh $MASTER2 "mr2-srv start resourcemanager" &> /dev/null
 
 # If hadoop-tmp is empty we need to format it
-fscontents=`ls $MR2_LOCAL_BASE/hadoop-tmp/ | wc -l`
+fscontents=`ssh $MASTER1 'ls $MR2_LOCAL_BASE/hadoop-tmp/ | wc -l'`
 if [ $fscontents == 0 ]; then
     ssh $MASTER1 "hdfs namenode -format"
-   #ssh $MASTER1 "hadoop namenode -format" #&> /dev/null
     if [ $? == 1 ]; then
         echo "Namenode wasn't formatted correctly, exiting"
         exit 1
@@ -23,6 +22,7 @@ fi
 sleep 2
 
 ssh $MASTER1 "mr2-srv start namenode; mr2-srv start historyserver" &> /dev/null
+if [ $? != 0 ]; then echo "namenode and/or history server failed to start"; exit 1; fi
 
 sleep 5
 
@@ -34,5 +34,5 @@ if [ $? == 1 ]; then
     exit 1
 fi
 
-echo "Waiting for steady state..."
+echo "Waiting for steady state before starting slaves..."
 sleep 8

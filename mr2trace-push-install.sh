@@ -12,7 +12,7 @@ if [ ! -d "$MR2_SOURCE" ]; then
     exit 1
 fi
 
-echo -n "Customizing and replacing config files..."
+echo "Customizing and replacing config files..."
 # Create config files based on mr2trace-config values
 rm -rf "$MR2_CONFIG_SOURCE"
 cp -r "$MR2_CONFIG_BASE" "$MR2_CONFIG_SOURCE"
@@ -26,14 +26,19 @@ sed -i s/"EUC_JOBHISTORY"/"$MASTER1"/g "$MAPRED_SITE"
 sed -i s/"EUC_HADOOP_RESOURCEMANAGER"/"$MASTER2"/g "$YARN_SITE"
 sed -i s@"EUC_HADOOP_NM_LOGS"@"$HADOOP_CONTAINER_LOGS"@g "$YARN_SITE"
 sed -i s@"EUC_HADOOP_NM_DIR"@"$HADOOP_NM_TEMP/nm-local-dir"@g "$YARN_SITE"
-echo "[ DONE ]"
 
-echo "Clear existing, copy fresh, and configure mr2 install"
-if [ -n "$1" ] && [ "clean" == "$1" ]; then
-    echo "Cleaning/installing"
-    
-    pusher $PUSHER_ALL "bash $MR2TRACE_HOME/mr2trace-local-install.sh clean"
-else
-    echo "Installing"
-    pusher $PUSHER_ALL "bash $MR2TRACE_HOME/mr2trace-local-install.sh"
-fi
+# Combine config files and binaries locally before deploy
+TMP_HADOOP_DIST="/tmp/hadoop-install"
+rm -rf $TMP_HADOOP_DIST
+mkdir -p $TMP_HADOOP_DIST
+cp -r "$MR2_SOURCE" "$TMP_HADOOP_DIST"
+cp -r "$MR2_CONFIG_SOURCE" "$TMP_HADOOP_DIST/etc/hadoop"
+
+echo "Cleaning/installing"    
+for node in `cat $CLUSTER_FILE`; do
+    ssh $node "bash -s" < mr2trace-local-clean.sh
+    if [ $? != 0 ]; then echo "local clean error on $node"; exit 1; fi
+    scp -r "$TMP_HADOOP_DIST" "$node:$HADOOP_HOME"
+    if [ $? != 0 ]; then echo "scp error on $node"; exit 1; fi
+done
+rm -rf $TMP_HADOOP_DIST
