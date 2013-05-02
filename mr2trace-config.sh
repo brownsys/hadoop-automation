@@ -24,7 +24,7 @@ PUSHER_BASE_ARGS="--ssh-options=-q"
 PUSHER_ALL="$PUSHER_BASE_ARGS --show-host --hosts=$CLUSTER_FILE"
 PUSHER_SLAVES="$PUSHER_BASE_ARGS --show-host --hosts=$SLAVES_FILE"
 
-MASTER1="euc04" #NameNode, JobHistoryServer
-MASTER2="euc05" #ResourceManager
+MASTER1="euc01" #NameNode, JobHistoryServer
+MASTER2="euc02" #ResourceManager
 TOTAL_NODES=`cat $SLAVES_FILE | wc -l`
 

@@ -30,15 +30,14 @@ sed -i s@"EUC_HADOOP_NM_DIR"@"$HADOOP_NM_TEMP/nm-local-dir"@g "$YARN_SITE"
 # Combine config files and binaries locally before deploy
 TMP_HADOOP_DIST="/tmp/hadoop-install"
 rm -rf $TMP_HADOOP_DIST
-cp -r "$MR2_SOURCE" "$TMP_HADOOP_DIST"
+cp -r $MR2_SOURCE $TMP_HADOOP_DIST
 cp $MR2_CONFIG_SOURCE/* $TMP_HADOOP_DIST/etc/hadoop/
 
 echo "Cleaning/installing"    
 for node in `cat $CLUSTER_FILE`; do
     ssh $node "bash -s" < mr2trace-local-clean.sh
     if [ $? != 0 ]; then echo "local clean error on $node"; exit 1; fi
-    rsync -at "$TMP_HADOOP_DIST" "$node:$HADOOP_HOME"
-    if [ $? != 0 ]; then echo "scp error on $node"; exit 1; fi
+    rsync -at "$TMP_HADOOP_DIST" $node:"$MR2_LOCAL_BASE"
+    #if [ $? != 0 ]; then echo "scp error on $node"; exit 1; fi
     echo "$node done"
 done
-rm -rf $TMP_HADOOP_DIST

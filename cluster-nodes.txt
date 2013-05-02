@@ -1,4 +1,9 @@
+euc01
+euc02
+euc03
+euc04
 euc05
 euc06
 euc07
 euc08
+euc09
