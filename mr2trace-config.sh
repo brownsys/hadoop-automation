@@ -5,7 +5,7 @@
 #=======================================================================================
 
 SHARED_FILES_NODE="euc-nat"
-SHARED_FILES_PATH="shared_files" # Inside user's homedir of the shared_files_node.
+SHARED_FILES_PATH="$HOME/shared_files" # Inside user's homedir of the shared_files_node.
 
 MR2TRACE_HOME="$SHARED_FILES_PATH/hadoop-automation"
 VERSION="hadoop-2.0.4-alpha"
