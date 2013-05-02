@@ -4,7 +4,10 @@
 #              for install, execution, tracing, etc.
 #=======================================================================================
 
-MR2TRACE_HOME="$HOME/nfs/hadoop-automation"
+SHARED_FILES_NODE="euc-nat"
+SHARED_FILES_PATH="shared_files" # Inside user's homedir of the shared_files_node.
+
+MR2TRACE_HOME="$SHARED_FILES_PATH/hadoop-automation"
 VERSION="hadoop-2.0.4-alpha"
 HADOOP_GIT_NAME="brownsys-hadoop"
 
@@ -21,8 +24,6 @@ PUSHER_BASE_ARGS="--ssh-options=-q"
 PUSHER_ALL="$PUSHER_BASE_ARGS --show-host --hosts=$CLUSTER_FILE"
 PUSHER_SLAVES="$PUSHER_BASE_ARGS --show-host --hosts=$SLAVES_FILE"
 
-#MASTER1="euc-nat.euc.smn.cs.brown.edu" #NameNode, JobHistoryServer
-#MASTER2="eucboss" #ResourceManager
 MASTER1="euc04" #NameNode, JobHistoryServer
 MASTER2="euc05" #ResourceManager
 TOTAL_NODES=`cat $SLAVES_FILE | wc -l`
