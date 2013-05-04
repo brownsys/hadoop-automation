@@ -7,3 +7,7 @@ euc06
 euc07
 euc08
 euc09
+euc10
+euc11
+euc12
+

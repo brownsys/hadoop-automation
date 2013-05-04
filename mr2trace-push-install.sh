@@ -37,7 +37,9 @@ echo "Cleaning/installing"
 for node in `cat $CLUSTER_FILE`; do
     ssh $node "bash -s" < mr2trace-local-clean.sh
     if [ $? != 0 ]; then echo "local clean error on $node"; exit 1; fi
-    rsync -at "$TMP_HADOOP_DIST" $node:"$MR2_LOCAL_BASE"
-    #if [ $? != 0 ]; then echo "scp error on $node"; exit 1; fi
+    #rsync -at "$TMP_HADOOP_DIST" $node:"$MR2_LOCAL_BASE"
+    scp -rq "$TMP_HADOOP_DIST" $node:"$MR2_LOCAL_BASE"
+    if [ $? != 0 ]; then echo "scp error on $node"; exit 1; fi
     echo "$node done"
 done
+rm -rf $TMP_HADOOP_DIST
